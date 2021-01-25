@@ -50,8 +50,11 @@ public class Build
             Directory.Delete(androidExportPath, true);
 
         EditorUserBuildSettings.androidBuildSystem = AndroidBuildSystem.Gradle;
-
-        var options = BuildOptions.AcceptExternalModificationsToPlayer;
+        
+        //var options = BuildOptions.AcceptExternalModificationsToPlayer;
+        EditorUserBuildSettings.exportAsGoogleAndroidProject = true;
+        var options = default(BuildOptions);
+        
         var report = BuildPipeline.BuildPlayer(
             GetEnabledScenes(),
             apkPath,
@@ -121,7 +124,8 @@ public class Build
 
         EditorUserBuildSettings.iOSBuildConfigType = iOSBuildType.Release;
 
-        var options = BuildOptions.AcceptExternalModificationsToPlayer;
+        //var options = BuildOptions.AcceptExternalModificationsToPlayer;
+        var options = default(BuildOptions);
 
         var report = BuildPipeline.BuildPlayer(
             GetEnabledScenes(),
